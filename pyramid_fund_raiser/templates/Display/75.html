@@ -1,0 +1,19 @@
+            {% if donate75_more = 0 %}
+            <button type="button" class="btn btn-danger">
+                $75 Completed - Thank you!!!!
+            </button><br />
+            {% else %}
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#donate75">
+                Donate $75
+            </button><br />
+            {% endif %}
+            {% if donate75_more > 0 %}
+            ({{ donate75_more }} more donation{% if donate75_more > 1 %}s{% endif %} needed)
+            {% endif %}
+            <div class="progress" style="width: 80%">
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{ donate75_percent }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ donate75_percent }}%;">
+                    {% if donate75_count > 0 %}
+                    {{ donate75_count }} donation{% if donate75_count > 1 %}s{% endif %}!
+                    {% endif %}
+                </div>
+            </div>

@@ -1,0 +1,57 @@
+    <!-- Modal -->
+    <div class="modal fade" id="donate75" tabindex="-1" role="dialog" aria-labelledby="donate75Label">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="donate75Label">Thank you for your willingness to donate!</h4>
+          </div>
+          <div class="modal-body">
+              {% if form %}
+            	<form action="" method="post">{% csrf_token %}
+            		<table class="table table-striped">
+            			{% if form.amount.errors %}
+            			<tr>
+            				<td colspan=2>{{ form.amount.errors }}</td>
+            			</tr>
+            			{% endif %}
+            			<tr>
+            				<td><label for="id_amount">Donation:</label></td>
+            				<td><span class="large">$ <input type="text" name="amount" value="75.00" readonly></span></td>
+            			</tr>
+            			{% if form.name.errors %}
+            			<tr>
+            				<td colspan=2>{{ form.name.errors }}</td>
+            			</tr>
+            			{% endif %}
+            			<tr>
+            				<td class='top'><label for="id_name">Your Name:</label></td>
+            				<td class='top'>
+            					{{ form.name }}
+            				</td>
+            			</tr>
+            			{% if form.emailaddress.errors %}
+            			<tr>
+            				<td colspan=2>{{ form.emailaddress.errors }}</td>
+            			</tr>
+            			{% endif %}
+            			<tr>
+            				<td><label for="id_emailaddress">Your Email:</label></td>
+            				<td>{{ form.emailaddress }}</td>
+            			</tr>
+            			<tr>
+            				<td colspan="2">
+            					{{ form.centername }}
+            					{{ form.frequency }}
+            					<div class="center">
+            					    <button type="submit" class="btn btn-primary">Continue to Paypal Secure Site</button>
+            					</div>
+            				</td>
+            			</tr>
+            		</table>
+            	</form>
+            	{% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
